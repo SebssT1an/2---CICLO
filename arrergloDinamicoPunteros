@@ -1,0 +1,66 @@
+#include "pch.h"
+#include <iostream>
+#include <ctime>
+
+using namespace System;
+using namespace std;
+
+const int MAX = 20;
+
+void generar(int* arreglo, int& n, int cantidad) { //generar arreglo
+    srand(time(NULL));
+    n = cantidad;
+    for (int i = 0; i < MAX; i++)
+    {
+        arreglo[i] = rand() % 100;
+    }
+}
+
+void mostrar(int* arreglo, int n) { //mostrar arreglo
+    if (n == 0)
+    {
+        cout << "El arreglo esta vacio\n";
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << arreglo[i] << " \n";
+    }
+    cout << "\n";
+}
+
+int main() {
+    int* arreglo = new int[MAX];
+    int n;
+    int cantidad;
+    int opcion;
+
+    do
+    {
+        cout << "MENU" << endl;
+        cout << "1. Generar arreglo aleatorio" << endl;
+        cout << "2. Mostrar datos" << endl;
+        cout << "8. Salir" << endl;
+        cout << "Selecciona una opcion" << endl;
+        cin >> opcion;
+        switch (opcion) {
+        case 1:
+            cout << "Ingrese cantidad de elemento (1 a <<<" << MAX << "):";
+            cin >> cantidad;
+
+            if (cantidad > 0 && cantidad < MAX) {
+                generar(arreglo, n, cantidad);
+                cout << "arreglo generado" << endl;
+            }
+            else {
+                cout << "Cantidad incorrecta";
+            }
+            break;
+        case 2:
+            mostrar(arreglo, n);
+        }
+    } while (opcion != 0);
+
+    delete[] arreglo;
+    system("pause>NULL");
+    return 0;
+}
