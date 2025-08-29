@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string.h>
+
+#define FILAS 5
+#define COLUMNAS 6
+
+using namespace std;
+
+void generar(int A[FILAS][COLUMNAS]) { // genera el arreglo 2D
+	for (int i = 0; i < FILAS; i++) {	// RECORRO FILAS
+		for (int j = 0; j < COLUMNAS; j++) {	// COLUMNAS
+			A[i][j] = 1 + rand() % 9;	// ASIGNAR UN VALOR
+		}
+	}
+	}
+
+void imprimir(int A[FILAS][COLUMNAS]) { //imprime el arreglo 
+	for (int i = 0; i < FILAS; i++) {	// RECORRO FILAS
+		for (int j = 0; j < COLUMNAS; j++) {	// COLUMNAS
+			A[i][j] = 1 + rand() % 9;	// ASIGNAR UN VALOR
+			cout << A[i][j] << " ";	// IMPRIMIR EL VALOR
+		}
+		cout << endl;	// SALTO DE LINEA
+	}
+}
